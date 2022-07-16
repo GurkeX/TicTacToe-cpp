@@ -74,8 +74,31 @@ char tictactoe_field::calculateWinner() {
         
         return field.at(0).at(2);
     }
+
+    int item_full_counter = 0;
+    int row_counter = 0;
+    int item_counter = 0;
+
+    for (const auto &row : field) {
+        for (const auto &item : row) {
+            if (field.at(row_counter).at(item_counter) != ' ') {
+                item_full_counter ++;
+            }
+
+            item_counter ++;
+            if (item_counter >= 3) {
+            item_counter = 0;
+            }
+        }
+    row_counter ++;
+    }
+
+    if (item_full_counter >= 9) {
+        return '-';
+    }
+
     
-    return 0;
+    return '0';
 }
     
 string tictactoe_field::getField_1_9_Str() {
@@ -126,7 +149,7 @@ void tictactoe_field::change_field_with_player_input(int player_input, bool play
             item_counter ++;
             if (item_counter >= 3) {
             item_counter = 0;
-        }
+            }
         }
         row_counter ++;
     }

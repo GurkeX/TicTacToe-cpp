@@ -8,7 +8,7 @@
 class tictactoe_field {
 protected:
     std::vector<std::vector<char>> field;
-    std::vector<std::vector<int>> field_1_9;    
+    std::vector<std::vector<int>> field_1_9;
 public:
     tictactoe_field();
     tictactoe_field(std::vector<std::vector<int>> field_1_9);

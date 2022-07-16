@@ -57,11 +57,6 @@ int main(int argc, const char *argv[])
 
         while (player_won != true) {
             int player_input;
-            
-            if(game.calculateWinner() != 0) {
-                cout << "Spieler " << game.calculateWinner() << " hat gewonnen!" << endl;
-                break;
-            }
 
             cout << endl << game.getFieldStr() << endl;
             cout << game.getField_1_9_Str() << endl;
@@ -70,7 +65,18 @@ int main(int argc, const char *argv[])
 
             player_turn = !player_turn;
             game.change_field_with_player_input(player_input, player_turn);
+
+            if(game.calculateWinner() != '0') {
+                if(game.calculateWinner() != '-') {
+                    cout << "Spieler " << game.calculateWinner() << " hat gewonnen!" << endl;
+                }
+                else if(game.calculateWinner() == '-') {
+                    cout << "Unentschieden!" << endl;
+                }
+                player_won = true;
+            }
         }
+        
         cout << "Endergebniss:" << endl
              << game.getFieldStr() << endl
              << endl;
