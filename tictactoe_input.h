@@ -9,4 +9,5 @@ public:
     tictactoe_input();
 
     int player_field_input();
+    void tictactoe_menu();
 };

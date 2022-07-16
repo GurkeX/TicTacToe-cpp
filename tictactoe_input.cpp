@@ -34,3 +34,36 @@ int tictactoe_input::player_field_input()
         }
     }
 }
+
+void tictactoe_input::tictactoe_menu() 
+{
+    int input;
+
+    while (1)
+    {
+        input = 0;
+
+        cout << "(1) Tictactoe spielen" << endl
+             << "(2) Programm beenden" << endl
+             << endl
+             << "Eingabe: ";
+
+        cin >> input;
+
+        cout << endl;
+
+        if (input == 1)
+        {
+            return;
+        }
+        else if (input == 2)
+        {
+            exit(0);
+        }
+        else if(cin.fail()) {
+            cin.clear();
+            cin.ignore(256, '\n');
+        }
+        cout << "Invalide eingabe, versuche es nocheinmal" << endl;
+    }
+}
